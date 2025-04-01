@@ -1,0 +1,7 @@
+services:
+  playwright:
+    build: .
+    volumes:
+      - ./tests:/tests
+    ports:
+      - '9323:9323'
