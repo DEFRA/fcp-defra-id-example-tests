@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "docker:test": "docker compose run --rm playwright"
+    "docker:test": "npm run create:directory; docker compose run --rm playwright",
+    "create:directory": "mkdir -p ./test-output"
   },
   "repository": {
     "type": "git",

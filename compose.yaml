@@ -2,6 +2,17 @@ services:
   playwright:
     build: .
     volumes:
-      - ./tests:/tests
+      - ./test:/home/node/test
+      - ./playwright.config.js:/home/node/playwright.config.js
+      - ./test-output:/home/node/test-output
     ports:
       - '9323:9323'
+    environment:
+      BASE_URL: ${BASE_URL:-http://fcp-defra-identity-example:3000}
+    networks:
+      - fcp-defra-id-example
+
+networks:
+  fcp-defra-id-example:
+    name: fcp-defra-id-example
+    driver: bridge
